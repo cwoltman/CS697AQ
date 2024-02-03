@@ -1,2 +1,2 @@
-# HomeTown
-Web Design Hw 1
+# CS697AQ
+Web Design Hw Repository

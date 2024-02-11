@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Happy Birthday Message Creator</title>
     <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        label {
+            width: 150px; /* Adjust the width as needed */
+        }
         input {
-            width: 200px;
+            width: 200px; /* Adjust the width as needed */
+        }
+        p {
+            margin: 5px 0;
         }
     </style>
+</head>
+<body>
     <h1>Happy Birthday Message Creator</h1>
+    <form action="#" method="post">
         <p>
             <label for="message">Message?</label>
             <input type="text" id="message" name="message">
@@ -33,5 +49,6 @@
         <p>
             <input type="button" value="Send Birthday Message">
         </p>
+    </form>
 </body>
 </html>

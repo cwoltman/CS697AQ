@@ -2,11 +2,10 @@ body {
     font-family: Roboto, Helvetica, sans-serif;
 }
 
-h1 {
+.title {
     font-size: 16px;
     color: #444444;
-    margin: 0 auto;
-    width: fit-content;
+    text-align: center;
 }
 
 .container {

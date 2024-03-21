@@ -16,11 +16,19 @@ function divideArray(numbers) {
 
     if (evenNums.length() > 0)
     {
-        console.log("Even numbers:", evenNums);
+        console.log("Even numbers:");
+        evenNums.forEach((num) =>
+        {
+            console.log(num);
+        });
     }
     else
     {
         console.log("None");
+        oddNums.forEach((num) =>
+        {
+            console.log(num);
+        });
     }
 
     if (oddNums.length() > 0)

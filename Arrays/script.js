@@ -30,13 +30,13 @@ function divideArray(numbers) {
     if (oddNums.length > 0)
     {
         console.log("Odd numbers:", oddNums);
-    }
-    else
-    {
-        console.log("None");
         oddNums.forEach((num) =>
         {
             console.log(num);
         });
+    }
+    else
+    {
+        console.log("None");
     }
 }

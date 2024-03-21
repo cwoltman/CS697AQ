@@ -14,7 +14,7 @@ function divideArray(numbers) {
     evenNums.sort((a, b) => a - b);
     oddNums.sort((a, b) => a - b);
 
-    if (evenNums.length() > 0)
+    if (evenNums.length > 0)
     {
         console.log("Even numbers:");
         evenNums.forEach((num) =>
@@ -25,18 +25,18 @@ function divideArray(numbers) {
     else
     {
         console.log("None");
-        oddNums.forEach((num) =>
-        {
-            console.log(num);
-        });
     }
 
-    if (oddNums.length() > 0)
+    if (oddNums.length > 0)
     {
         console.log("Odd numbers:", oddNums);
     }
     else
     {
         console.log("None");
+        oddNums.forEach((num) =>
+        {
+            console.log(num);
+        });
     }
 }

@@ -10,29 +10,38 @@ function domLoaded() {
     const fInput = document.getElementById("fInput");
     const errorMessage = document.getElementById("errorMessage");
     const weatherImage = document.getElementById("weatherImage");
-
+ 
     errorMessage.textContent = "";
  
     const celsius = parseFloat(cInput.value);
     const fahrenheit = parseFloat(fInput.value);
  
-    if (isNaN(celsius) && isNaN(fahrenheit)) {
-       errorMessage.textContent = "Please enter a value in Celsius or Fahrenheit.";
+    if ((isNaN(celsius) && isNaN(fahrenheit)) || (!isNaN(celsius) && !isNaN(fahrenheit))) {
+       errorMessage.textContent = "Please enter a value in only one of the fields.";
        return;
     }
  
     if (!isNaN(celsius)) {
-       fInput.value = convertCtoF(celsius);
+       const convertedFahrenheit = convertCtoF(celsius);
        fInput.value = convertedFahrenheit;
        updateImage(convertedFahrenheit);
     }
  
     if (!isNaN(fahrenheit)) {
-       cInput.value = convertFtoC(fahrenheit);
+       const convertedCelsius = convertFtoC(fahrenheit);
        cInput.value = convertedCelsius;
        updateImage(fahrenheit);
     }
+ 
+    if (isNaN(celsius) && cInput.value !== "") {
+       errorMessage.innerHTML = `${cInput.value} is not a number`;
+    }
+ 
+    if (isNaN(fahrenheit) && fInput.value !== "") {
+       errorMessage.innerHTML = `${fInput.value} is not a number`;
+    }
  }
+ 
 
  function updateImage(temperature) {
     const weatherImage = document.getElementById("weatherImage");

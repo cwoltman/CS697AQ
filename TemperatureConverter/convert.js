@@ -1,24 +1,5 @@
 window.addEventListener("DOMContentLoaded", domLoaded);
 
-function domLoaded() {
-    const convertButton = document.getElementById("convertButton");
-    convertButton.addEventListener("click", handleConvert);
-    const cInput = document.getElementById("cInput");
-    const fInput = document.getElementById("fInput");
-    
-    cInput.addEventListener("input", function() {
-        if (cInput.value.trim() !== "") {
-            fInput.value = "";
-        }
-    });
-    
-    fInput.addEventListener("input", function() {
-        if (fInput.value.trim() !== "") {
-            cInput.value = "";
-        }
-    });
-}
-
 function handleConvert() {
     const cInput = document.getElementById("cInput");
     const fInput = document.getElementById("fInput");
@@ -27,8 +8,31 @@ function handleConvert() {
 
     errorMessage.textContent = "";
 
-    let celsius = parseFloat(cInput.value);
-    let fahrenheit = parseFloat(fInput.value);
+    let celsiusString = cInput.value.trim();
+    let fahrenheitString = fInput.value.trim();
+
+    if (celsiusString !== "") {
+        if (isNaN(parseFloat(celsiusString))) {
+            errorMessage.textContent = `${celsiusString} is not a number`;
+            return;
+        }
+    }
+
+    if (fahrenheitString !== "") {
+        if (isNaN(parseFloat(fahrenheitString))) {
+            errorMessage.textContent = `${fahrenheitString} is not a number`;
+            return;
+        }
+    }
+
+    let celsius = parseFloat(celsiusString);
+    let fahrenheit = parseFloat(fahrenheitString);
+
+    if (!isNaN(celsius)) {
+        fInput.value = "";
+    } else if (!isNaN(fahrenheit)) {
+        cInput.value = "";
+    }
 
     if ((isNaN(celsius) && isNaN(fahrenheit)) || (!isNaN(celsius) && !isNaN(fahrenheit))) {
         errorMessage.textContent = "Please enter a value in only one of the fields.";
@@ -45,14 +49,6 @@ function handleConvert() {
         const convertedCelsius = convertFtoC(fahrenheit);
         cInput.value = convertedCelsius;
         updateImage(fahrenheit);
-    }
-
-    if (isNaN(celsius) && cInput.value !== "") {
-        errorMessage.textContent = `${cInput.value} is not a number`;
-    }
-
-    if (isNaN(fahrenheit) && fInput.value !== "") {
-        errorMessage.textContent = `${fInput.value} is not a number`;
     }
 }
 

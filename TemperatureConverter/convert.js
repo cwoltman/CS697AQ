@@ -34,13 +34,14 @@ function domLoaded() {
     }
  
     if (isNaN(celsius) && cInput.value !== "") {
-       errorMessage.innerHTML = `${cInput.value} is not a number`;
+       errorMessage.textContent = `${cInput.value} is not a number`;
     }
  
     if (isNaN(fahrenheit) && fInput.value !== "") {
-       errorMessage.innerHTML = `${fInput.value} is not a number`;
+       errorMessage.textContent = `${fInput.value} is not a number`;
     }
  }
+ 
  
 
  function updateImage(temperature) {

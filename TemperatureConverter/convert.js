@@ -5,9 +5,9 @@ function domLoaded() {
 }
 
 function convertCtoF(degreesCelsius) {
-   // TODO: Complete the function
+   return (degreesCelsius * 9/5) +32;
 }
 
 function convertFtoC(degreesFahrenheit) {
-   // TODO: Complete the function
+   return (degreesFahrenheit  - 32) * 5/9;
 }

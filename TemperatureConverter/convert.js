@@ -1,5 +1,24 @@
 window.addEventListener("DOMContentLoaded", domLoaded);
 
+function domLoaded() {
+    const convertButton = document.getElementById("convertButton");
+    convertButton.addEventListener("click", handleConvert);
+    const cInput = document.getElementById("cInput");
+    const fInput = document.getElementById("fInput");
+    
+    cInput.addEventListener("input", function() {
+        if (cInput.value.trim() !== "") {
+            fInput.value = "";
+        }
+    });
+    
+    fInput.addEventListener("input", function() {
+        if (fInput.value.trim() !== "") {
+            cInput.value = "";
+        }
+    });
+}
+
 function handleConvert() {
     const cInput = document.getElementById("cInput");
     const fInput = document.getElementById("fInput");
@@ -51,6 +70,7 @@ function handleConvert() {
         updateImage(fahrenheit);
     }
 }
+
 
 function updateImage(temperature) {
     const weatherImage = document.getElementById("weatherImage");

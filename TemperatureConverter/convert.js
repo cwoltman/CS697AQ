@@ -3,78 +3,77 @@ window.addEventListener("DOMContentLoaded", domLoaded);
 function domLoaded() {
     const convertButton = document.getElementById("convertButton");
     convertButton.addEventListener("click", handleConvert);
- }
- 
- function handleConvert() {
+    const cInput = document.getElementById("cInput");
+    const fInput = document.getElementById("fInput");
+    
+    cInput.addEventListener("input", function() {
+        if (cInput.value.trim() !== "") {
+            fInput.value = "";
+        }
+    });
+    
+    fInput.addEventListener("input", function() {
+        if (fInput.value.trim() !== "") {
+            cInput.value = "";
+        }
+    });
+}
+
+function handleConvert() {
     const cInput = document.getElementById("cInput");
     const fInput = document.getElementById("fInput");
     const errorMessage = document.getElementById("errorMessage");
     const weatherImage = document.getElementById("weatherImage");
- 
+
     errorMessage.textContent = "";
- 
+
     let celsius = parseFloat(cInput.value);
     let fahrenheit = parseFloat(fInput.value);
- 
-    if (!isNaN(celsius)) {
-       fInput.value = "";
-    } else if (!isNaN(fahrenheit)) {
-       cInput.value = "";
-    }
- 
+
     if ((isNaN(celsius) && isNaN(fahrenheit)) || (!isNaN(celsius) && !isNaN(fahrenheit))) {
-       errorMessage.textContent = "Please enter a value in only one of the fields.";
-        if (isNaN(celsius) && cInput.value !== "") {
-            errorMessage.textContent = `${cInput.value} is not a number`;
-     }
-  
-        if (isNaN(fahrenheit) && fInput.value !== "") {
-            errorMessage.textContent = `${fInput.value} is not a number`;
-     }
-       return;
+        errorMessage.textContent = "Please enter a value in only one of the fields.";
+        return;
     }
- 
+
     if (!isNaN(celsius)) {
-       const convertedFahrenheit = convertCtoF(celsius);
-       fInput.value = convertedFahrenheit;
-       updateImage(convertedFahrenheit);
+        const convertedFahrenheit = convertCtoF(celsius);
+        fInput.value = convertedFahrenheit;
+        updateImage(convertedFahrenheit);
     }
- 
+
     if (!isNaN(fahrenheit)) {
-       const convertedCelsius = convertFtoC(fahrenheit);
-       cInput.value = convertedCelsius;
-       updateImage(fahrenheit);
+        const convertedCelsius = convertFtoC(fahrenheit);
+        cInput.value = convertedCelsius;
+        updateImage(fahrenheit);
     }
- 
+
     if (isNaN(celsius) && cInput.value !== "") {
-       errorMessage.textContent = `${cInput.value} is not a number`;
+        errorMessage.textContent = `${cInput.value} is not a number`;
     }
- 
+
     if (isNaN(fahrenheit) && fInput.value !== "") {
-       errorMessage.textContent = `${fInput.value} is not a number`;
+        errorMessage.textContent = `${fInput.value} is not a number`;
     }
- }
- 
- function updateImage(temperature) {
+}
+
+function updateImage(temperature) {
     const weatherImage = document.getElementById("weatherImage");
     if (temperature < 32) {
-       weatherImage.src = "cold.png";
-       weatherImage.alt = "Cold";
+        weatherImage.src = "cold.png";
+        weatherImage.alt = "Cold";
     } else if (temperature >= 32 && temperature <= 50) {
-       weatherImage.src = "cool.png";
-       weatherImage.alt = "Cool";
+        weatherImage.src = "cool.png";
+        weatherImage.alt = "Cool";
     } else {
-       weatherImage.src = "warm.png";
-       weatherImage.alt = "Warm";
+        weatherImage.src = "warm.png";
+        weatherImage.alt = "Warm";
     }
- }
- 
+}
+
 function convertCtoF(degreesCelsius) {
-   fInput.value = "";
-   return (degreesCelsius * 9/5) +32;
+    return (degreesCelsius * 9/5) +32;
 }
 
 function convertFtoC(degreesFahrenheit) {
-   cInput.value = "";
-   return (degreesFahrenheit  - 32) * 5/9;
+    return (degreesFahrenheit  - 32) * 5/9;
 }

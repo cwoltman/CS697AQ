@@ -24,6 +24,13 @@ function domLoaded() {
  
     if ((isNaN(celsius) && isNaN(fahrenheit)) || (!isNaN(celsius) && !isNaN(fahrenheit))) {
        errorMessage.textContent = "Please enter a value in only one of the fields.";
+        if (isNaN(celsius) && cInput.value !== "") {
+            errorMessage.textContent = `${cInput.value} is not a number`;
+     }
+  
+        if (isNaN(fahrenheit) && fInput.value !== "") {
+            errorMessage.textContent = `${fInput.value} is not a number`;
+     }
        return;
     }
  
@@ -63,9 +70,11 @@ function domLoaded() {
  }
  
 function convertCtoF(degreesCelsius) {
+   fInput.value = "";
    return (degreesCelsius * 9/5) +32;
 }
 
 function convertFtoC(degreesFahrenheit) {
+   cInput.value = "";
    return (degreesFahrenheit  - 32) * 5/9;
 }

@@ -13,8 +13,14 @@ function domLoaded() {
  
     errorMessage.textContent = "";
  
-    const celsius = parseFloat(cInput.value);
-    const fahrenheit = parseFloat(fInput.value);
+    let celsius = parseFloat(cInput.value);
+    let fahrenheit = parseFloat(fInput.value);
+ 
+    if (!isNaN(celsius)) {
+       fInput.value = "";
+    } else if (!isNaN(fahrenheit)) {
+       cInput.value = "";
+    }
  
     if ((isNaN(celsius) && isNaN(fahrenheit)) || (!isNaN(celsius) && !isNaN(fahrenheit))) {
        errorMessage.textContent = "Please enter a value in only one of the fields.";
@@ -42,8 +48,6 @@ function domLoaded() {
     }
  }
  
- 
-
  function updateImage(temperature) {
     const weatherImage = document.getElementById("weatherImage");
     if (temperature < 32) {

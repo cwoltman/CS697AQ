@@ -90,13 +90,13 @@ function newGame() {
 }
 
 function boardButtonClicked(button) {
-	if (playerTurn)
-    {
-        chosenButton.innerHTML = "X";
-        button.classList.add("x");
-        button.disabled = true;
-        switchTurn();
-    }
+	if (playerTurn) {
+		button.innerHTML = "X";
+		button.classList.add("x");
+		button.disabled = true;
+		button.removeEventListener('click', () => boardButtonClicked(button));
+		switchTurn();
+	}
 }
 
 function switchTurn() {

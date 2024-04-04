@@ -120,7 +120,14 @@ function switchTurn() {
         return;
     }
 
-    playerTurn = !playerTurn;
+    if (playerTurn)
+    {
+        playerTurn = false;
+    }
+    else
+    {
+        playerTurn = true;
+    }
 
     const turnInfo = document.getElementById("turnInfo");
     if (playerTurn) 
@@ -133,7 +140,6 @@ function switchTurn() {
         computerMoveTimeout = setTimeout(makeComputerMove, 1000);
     }
 }
-
 
 
 function makeComputerMove() {

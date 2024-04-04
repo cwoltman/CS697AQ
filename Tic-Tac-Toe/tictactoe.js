@@ -71,7 +71,22 @@ function checkForWinner() {
 }
 
 function newGame() {
-	// TODO: Complete the function
+    clearTimeout(computerMoveTimeout);
+    computerMoveTimeout = 0;
+
+    const buttons = getGameBoardButtons();
+    for (let button of buttons)
+    {
+        button.innerHTML = "";
+        button.classList.remove("x");
+        button.classList.remove("o");
+        button.disabled = false;
+    }
+
+    playerTurn = true;
+    const turnInfo = document.getElementById("turnInfo");
+    turnInfo.textContent = "Your turn";
+
 }
 
 function boardButtonClicked(button) {

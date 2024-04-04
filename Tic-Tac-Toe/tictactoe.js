@@ -75,11 +75,55 @@ function newGame() {
 }
 
 function boardButtonClicked(button) {
-	// TODO: Complete the function
+	if (playerTurn)
+    {
+        button.classList.add("x");
+        button.disabled = true;
+        switchTurn();
+    }
 }
 
 function switchTurn() {
-	// TODO: Complete the function
+	checkForWinner();
+    if (result !== gameStatus.MORE_MOVES_LEFT)
+    {
+        playerTurn = false;
+        const turnInfo = document.getElementById("turnInfo");
+        if (result === gameStatus.HUMAN_WINS)
+        {
+            turnInfo.textContent = "You win!";
+        }
+        else if (result === gameStatus.COMPUTER_WINS)
+        {
+            turnInfo.textContent = "Computer wins!";
+        }
+        else
+        {
+            turnInfo.textContent = "Draw game";
+        }
+        return;
+    }
+
+    playerTurn = !playerTurn;
+
+    const turnInfo = document.getElementById("turnInfo");
+    if (playerTurn)
+    {
+        turnInfo.textContent = "Your turn";
+    }
+    else
+    {
+        turnInfo.textContent = "Computer's turn"
+    }
+
+    if (!playerTurn)
+    {
+        computerMoveTimeout = setTimeout(makeComputerMove, 1000);
+    }
+    else
+    {
+        clearTimeout(computerMoveTimeout);
+    }
 }
 
 function makeComputerMove() {

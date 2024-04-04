@@ -99,47 +99,49 @@ function boardButtonClicked(button) {
 }
 
 function switchTurn() {
-	checkForWinner();
-    if (result !== gameStatus.MORE_MOVES_LEFT)
-    {
-        playerTurn = false;
-        const turnInfo = document.getElementById("turnInfo");
-        if (result === gameStatus.HUMAN_WINS)
-        {
-            turnInfo.textContent = "You win!";
-        }
-        else if (result === gameStatus.COMPUTER_WINS)
-        {
-            turnInfo.textContent = "Computer wins!";
-        }
-        else
-        {
-            turnInfo.textContent = "Draw game";
-        }
-        return;
-    }
+	const result = checkForWinner();
 
-    playerTurn = !playerTurn;
-
-    const turnInfo = document.getElementById("turnInfo");
-    if (playerTurn)
+	if (result !== gameStatus.MORE_MOVES_LEFT) 
     {
-        turnInfo.textContent = "Your turn";
-    }
+		playerTurn = false;
+		const turnInfo = document.getElementById("turnInfo");
+		if (result === gameStatus.HUMAN_WINS) 
+        {
+			turnInfo.textContent = "You win!";
+		} 
+        else if (result === gameStatus.COMPUTER_WINS) 
+        {
+			turnInfo.textContent = "Computer wins!";
+		} 
+        else 
+        {
+			turnInfo.textContent = "Draw game";
+		}
+		return;
+	}
+
+	playerTurn = !playerTurn;
+
+	const turnInfo = document.getElementById("turnInfo");
+	if (playerTurn) 
+    {
+		turnInfo.textContent = "Your turn";
+	} 
+    else 
+    {
+		turnInfo.textContent = "Computer's turn";
+	}
+
+	if (!playerTurn)
+    {
+		computerMoveTimeout = setTimeout(makeComputerMove, 1000);
+	} 
     else
     {
-        turnInfo.textContent = "Computer's turn"
-    }
-
-    if (!playerTurn)
-    {
-        computerMoveTimeout = setTimeout(makeComputerMove, 1000);
-    }
-    else
-    {
-        clearTimeout(computerMoveTimeout);
-    }
+		clearTimeout(computerMoveTimeout);
+	}
 }
+
 
 function makeComputerMove() {
 	// TODO: Complete the function

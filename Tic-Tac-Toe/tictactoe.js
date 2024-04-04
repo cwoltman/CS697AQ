@@ -133,7 +133,6 @@ function switchTurn() {
         turnInfo.textContent = "Computer's turn";
         computerMoveTimeout = setTimeout(makeComputerMove, 1000);
     }
-    console.log(playerTurn);
 }
 
 

@@ -144,5 +144,23 @@ function switchTurn() {
 
 
 function makeComputerMove() {
-	// TODO: Complete the function
+    const buttons = getGameBoardButtons();
+    const availableButtons = [];
+
+    for (let button of buttons) 
+    {
+        if (button.innerHTML === "")
+        {
+            availableButtons.push(button);
+        }
+    }
+
+    const randomIndex = Math.floor(Math.random() * availableButtons.length);
+    const chosenButton = availableButtons[randomIndex];
+
+    chosenButton.innerHTML = "O";
+    chosenButton.classList.add("o");
+    chosenButton.disabled = true;
+
+    switchTurn();
 }

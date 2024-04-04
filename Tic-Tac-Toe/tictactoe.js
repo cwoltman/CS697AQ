@@ -147,10 +147,8 @@ function makeComputerMove() {
     const buttons = getGameBoardButtons();
     const availableButtons = [];
 
-    for (let button of buttons) 
-    {
-        if (button.innerHTML === "")
-        {
+    for (let button of buttons) {
+        if (button.innerHTML === "") {
             availableButtons.push(button);
         }
     }
@@ -161,6 +159,4 @@ function makeComputerMove() {
     chosenButton.innerHTML = "O";
     chosenButton.classList.add("o");
     chosenButton.disabled = true;
-
-    switchTurn();
 }

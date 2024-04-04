@@ -92,6 +92,7 @@ function newGame() {
 function boardButtonClicked(button) {
 	if (playerTurn)
     {
+        chosenButton.innerHTML = "X";
         button.classList.add("x");
         button.disabled = true;
         switchTurn();
@@ -120,14 +121,7 @@ function switchTurn() {
         return;
     }
 
-    if (playerTurn)
-    {
-        playerTurn = false;
-    }
-    else
-    {
-        playerTurn = true;
-    }
+    playerTurn = !playerTurn;
 
     const turnInfo = document.getElementById("turnInfo");
     if (playerTurn) 

@@ -1,27 +1,27 @@
 /* styles.css */
 
-.row {
+.form-group {
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
 }
 
-.row label {
+.form-group label {
     margin-bottom: 5px;
 }
 
-.row input[type="number"] {
-    margin-bottom: 10px;
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 8px;
-    width: calc(50% - 5px);
 }
 
-.row input[type="number"]:last-child {
-    margin-left: 10px;
+.row {
+    display: flex;
 }
 
-/* Global styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -52,6 +52,7 @@ label {
 input[type="text"] {
     width: 100%;
     padding: 8px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }

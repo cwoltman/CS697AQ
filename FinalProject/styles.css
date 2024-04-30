@@ -69,18 +69,17 @@ button:hover {
     }
 }
 
-.price-quantity {
+price-quantity {
     display: flex;
     flex-wrap: wrap;
 }
 
-.price-row, .quantity-row {
-    flex: 1;
+.price-quantity label, .price-quantity input {
+    flex: 1 0 40%; /* Adjust width as needed */
     margin-right: 10px;
 }
 
-.price-row label, .quantity-row label {
-    display: block;
+.price-quantity label {
     margin-bottom: 5px;
 }
 

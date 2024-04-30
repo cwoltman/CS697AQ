@@ -23,3 +23,7 @@ document.getElementById('clearButton').addEventListener('click', function() {
     document.getElementById('minQuantity').value = '';
     document.getElementById('maxQuantity').value = '';
 });
+
+function performAnotherSearch() {
+    window.location.href = 'index.html';
+}

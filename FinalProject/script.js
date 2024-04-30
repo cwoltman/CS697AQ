@@ -22,6 +22,11 @@ function performSearch(productName) {
 document.getElementById('clearButton').addEventListener('click', function() {
     // Clear form fields
     document.getElementById('productName').value = '';
+    document.getElementById('warehouseCity').value = '';
+    document.getElementById('minPrice').value = '';
+    document.getElementById('maxPrice').value = '';
+    document.getElementById('minQuantity').value = '';
+    document.getElementById('maxQuantity').value = '';
 });
 
 // Function to navigate back to the product search page

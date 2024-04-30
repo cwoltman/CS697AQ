@@ -1,5 +1,9 @@
 /* styles.css */
 
+.row {
+    display: flex;
+}
+
 /* Global styles */
 body {
     font-family: Arial, sans-serif;
@@ -68,18 +72,3 @@ button:hover {
         width: calc(100% - 20px);
     }
 }
-
-price-quantity {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.price-quantity label, .price-quantity input {
-    flex: 1 0 40%; /* Adjust width as needed */
-    margin-right: 10px;
-}
-
-.price-quantity label {
-    margin-bottom: 5px;
-}
-

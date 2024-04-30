@@ -68,3 +68,19 @@ button:hover {
         width: calc(100% - 20px);
     }
 }
+
+.price-quantity {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.price-row, .quantity-row {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.price-row label, .quantity-row label {
+    display: block;
+    margin-bottom: 5px;
+}
+

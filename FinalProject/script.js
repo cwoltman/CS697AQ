@@ -1,3 +1,5 @@
+// script.js
+
 // Function to handle form submission
 document.getElementById('productSearchForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -12,7 +14,6 @@ document.getElementById('productSearchForm').addEventListener('submit', function
     window.location.href = `search_results.html?productName=${productName}&warehouseCity=${warehouseCity}&minPrice=${minPrice}&maxPrice=${maxPrice}&minQuantity=${minQuantity}&maxQuantity=${maxQuantity}`;
 });
 
-// Function to clear form fields
 document.getElementById('clearButton').addEventListener('click', function() {
     // Clear form fields
     document.getElementById('productName').value = '';
@@ -23,7 +24,6 @@ document.getElementById('clearButton').addEventListener('click', function() {
     document.getElementById('maxQuantity').value = '';
 });
 
-// Function to navigate back to the product search page
 function performAnotherSearch() {
     window.location.href = 'index.html';
 }

@@ -1,4 +1,4 @@
-// script.js
+//script.js
 
 // Function to handle form submission
 document.getElementById('productSearchForm').addEventListener('submit', function(event) {

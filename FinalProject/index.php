@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Woltman's Wares - Product Search</h1>
-        <form id="productSearchForm">
+        <form id="productSearchForm" action="search_results.php" method="GET">
             <div class="form-group">
                 <label for="productName">Product Name (substring)</label>
                 <input type="text" id="productName" name="productName">
